@@ -19,6 +19,15 @@ set_place.onclick = async () => {
   $(set_place).remove()
 }
 
+clean.onclick = async () => {
+  let result = window.confirm("データを初期化しますか？")
+  if(result){
+    const response = await fetch("/api/clean",{
+    method: "GET"
+    })
+  }
+}
+
 set_list.onclick = async () => {
   set_list.disabled = true //連続クリックの防止、ボタン非活性化
   const form = document.getElementById("name")

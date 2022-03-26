@@ -40,6 +40,8 @@ serve( async(req) => {
                 return setPlace(req)
             case "/api/getPlace":
                 return getPlace(req)
+            case "/api/clean":
+                return clean(req)
         }
     }
 
@@ -91,6 +93,12 @@ const setPlace = (req: Request) => {
 
 const getPlace = (req: Request) => {
     return createJsonResponse({place})
+}
+
+const clean = (req: Request) => {
+    list.splice(0)
+    place = "null"
+    return createJsonResponse({list})
 }
 
 
